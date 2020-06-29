@@ -18,5 +18,6 @@ RUN mkdir -p /usr/local/bin
 COPY entrypoint /entrypoint
 
 VOLUME [ "/ocis" ]
+WORKDIR /ocis
 # CMD go build -v -o bin/ocis -toolexec '/usr/bin/time -v' ./cmd/ocis && ./bin/ocis server
 
