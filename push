@@ -1,0 +1,8 @@
+#!/bin/bash
+
+docker push owncloud/eos-base
+docker push owncloud/eos-qdb
+docker push owncloud/eos-mgm
+docker push owncloud/eos-mq
+docker push owncloud/eos-fst
+docker push owncloud/eos-ocis
