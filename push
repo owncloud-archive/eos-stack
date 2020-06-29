@@ -5,4 +5,6 @@ docker push owncloud/eos-qdb
 docker push owncloud/eos-mgm
 docker push owncloud/eos-mq
 docker push owncloud/eos-fst
-docker push owncloud/eos-ocis
+docker push owncloud/eos-ocis:latest
+docker push owncloud/eos-ocis:master
+docker push owncloud/eos-ocis-dev:latest
