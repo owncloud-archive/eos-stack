@@ -16,7 +16,9 @@ sed -e "s|@IPADDR@|${OCIS_DOMAIN}|g" /config/identifier-registration.yml.tmpl > 
 
 # fix crash if shares.json not exists
 mkdir -p /var/tmp/reva
-touch /var/tmp/reva/shares.json
+if [ ! -f /var/tmp/reva/shares.json ]; then
+  echo "{}" > /var/tmp/reva/shares.json
+fi
 
 echo "----- [ocis] Starting oCIS -----"
 # todo start ocis as daemon not as root
