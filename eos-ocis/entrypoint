@@ -14,11 +14,8 @@ echo "Domain / IP: $OCIS_DOMAIN"
 mkdir -p /etc/ocis
 sed -e "s|@IPADDR@|${OCIS_DOMAIN}|g" /config/identifier-registration.yml.tmpl > /etc/ocis/identifier-registration.yml
 
-# fix crash if shares.json not exists
+# TODO do we still need to precreate this folder?
 mkdir -p /var/tmp/reva
-if [ ! -f /var/tmp/reva/shares.json ]; then
-  echo "{}" > /var/tmp/reva/shares.json
-fi
 
 echo "----- [ocis] Starting oCIS -----"
 # todo start ocis as daemon not as root
