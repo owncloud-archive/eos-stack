@@ -16,6 +16,7 @@ RUN ln -s /usr/local/go/bin/* /usr/local/bin
 RUN mkdir -p /usr/local/bin
 
 COPY entrypoint /entrypoint
+COPY start-ldap /start-ldap
 
 VOLUME [ "/ocis" ]
 WORKDIR /ocis
