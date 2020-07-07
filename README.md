@@ -12,3 +12,5 @@ See https://github.com/owncloud-docker/compose-playground/tree/master/examples/e
 ## ocis develop
 
 use image eos-ocis-dev
+
+# Setup eos dev environment

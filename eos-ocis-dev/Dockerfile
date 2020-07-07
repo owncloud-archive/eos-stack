@@ -1,4 +1,4 @@
-FROM owncloud/eos-base
+FROM owncloud/eos-base:4.6.5
 ARG BRANCH=master
 
 ENV CGO_ENABLED=1
