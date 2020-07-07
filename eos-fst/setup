@@ -10,3 +10,6 @@ for i in {1..4}; do
 done
 
 eos space set default on
+
+sleep 2
+eos fs ls
