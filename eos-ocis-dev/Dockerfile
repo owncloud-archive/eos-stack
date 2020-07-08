@@ -1,4 +1,4 @@
-FROM owncloud/eos-base
+FROM owncloud/eos-base:4.6.5
 ARG BRANCH=master
 
 ENV CGO_ENABLED=1
@@ -16,6 +16,7 @@ RUN ln -s /usr/local/go/bin/* /usr/local/bin
 RUN mkdir -p /usr/local/bin
 
 COPY entrypoint /entrypoint
+COPY start-ldap /start-ldap
 
 VOLUME [ "/ocis" ]
 WORKDIR /ocis

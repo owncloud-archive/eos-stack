@@ -1,10 +1,11 @@
 #!/bin/bash
+EOS_VERSION=4.6.5
 
-docker build -t owncloud/eos-base ./eos-base
-docker build -t owncloud/eos-qdb ./eos-qdb
-docker build -t owncloud/eos-mgm ./eos-mgm
-docker build -t owncloud/eos-mq ./eos-mq
-docker build -t owncloud/eos-fst ./eos-fst
+docker build -t owncloud/eos-base:$EOS_VERSION --build-arg EOS_VERSION=$EOS_VERSION ./eos-base
+docker build -t owncloud/eos-qdb:$EOS_VERSION ./eos-qdb
+docker build -t owncloud/eos-mgm:$EOS_VERSION ./eos-mgm
+docker build -t owncloud/eos-mq:$EOS_VERSION ./eos-mq
+docker build -t owncloud/eos-fst:$EOS_VERSION ./eos-fst
 docker build -t owncloud/eos-ocis:master -t owncloud/eos-ocis:latest ./eos-ocis
 docker build -t owncloud/eos-ocis-dev:latest ./eos-ocis-dev
 

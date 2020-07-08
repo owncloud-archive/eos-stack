@@ -1,18 +1,4 @@
 #!/bin/sh
 
-# fix crash if shares.json not exists
-mkdir -p /var/tmp/reva
-touch /var/tmp/reva/shares.json
-
-echo "Waiting for EOS MGM"
-echo "until nc -z -w 3 $EOS_MGM_ALIAS 1094; do sleep 2; done;" > /wait-for-mgm
-chmod +x /wait-for-mgm
-
-/wait-for-mgm;
-echo "----- [ocis] LDAP setup -----";
-authconfig --enableldap --enableldapauth --ldapserver=${EOS_LDAP_HOST} --ldapbasedn="dc=example,dc=org" --update;
-sed -i "s/#binddn cn=.*/binddn cn=reva,ou=sysusers,dc=example,dc=org/" /etc/nslcd.conf;
-sed -i "s/#bindpw .*/bindpw reva/" /etc/nslcd.conf;
-# start in debug mode;
-
-nslcd -d
+make build
+exec bin/ocis server

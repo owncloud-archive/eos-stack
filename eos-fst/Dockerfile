@@ -1,4 +1,4 @@
-FROM eos/base
+FROM owncloud/eos-base:4.6.5
 
 RUN rpm --rebuilddb && yum -y install \
     jq \

@@ -3,6 +3,7 @@ FROM centos:7
 # ----- Define EOS and XRD version: defaults to 'latest' ----- #
 ARG EOS_VERSION="4.6.5"
 ARG XRD_VERSION="4.11.0"
+# 2020-07-01 4.6.5 / 4.11.0 worked
 # xrootd                  x86_64  1:4.11.3-1.el7
 # eos-server              x86_64  4.7.16-1.el7.cern
 
