@@ -6,9 +6,6 @@ docker build -t owncloud/eos-qdb:$EOS_VERSION ./eos-qdb
 docker build -t owncloud/eos-mgm:$EOS_VERSION ./eos-mgm
 docker build -t owncloud/eos-mq:$EOS_VERSION ./eos-mq
 docker build -t owncloud/eos-fst:$EOS_VERSION ./eos-fst
-docker build -t owncloud/eos-ocis:master -t owncloud/eos-ocis:latest ./eos-ocis
-docker build -t owncloud/eos-ocis-dev:latest ./eos-ocis-dev
 
-# docker build -t owncloud/eos-ocis:1.0.0-beta4 --build-arg BRANCH=v1.0.0-beta4 ./eos-ocis
 # docker build -t owncloud/eos-eosd ./eos-eosd
 # docker build -t owncloud/eos-eosxd ./eos-eosxd

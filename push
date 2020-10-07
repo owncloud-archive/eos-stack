@@ -8,6 +8,3 @@ docker push owncloud/eos-mgm:$EOS_VERSION
 docker push owncloud/eos-mq:$EOS_VERSION
 docker push owncloud/eos-fst:$EOS_VERSION
 
-docker push owncloud/eos-ocis:latest
-docker push owncloud/eos-ocis:master
-docker push owncloud/eos-ocis-dev:latest
