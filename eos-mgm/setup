@@ -37,4 +37,9 @@ eos mkdir -p /eos/dockertest/reva/users
 eos -r 0 0 -b attr set sys.acl="u:2:rwxc" /eos/dockertest/reva/users
 eos ls -l /eos/dockertest/reva/users
 
+echo; echo "===== [mgm setup] ENABLE TRASHBIN ====="
+eos space config default space.policy.recycle=on
+eos recycle config --add-bin /eos/dockertest/reva/users
+eos recycle config --size 1G
+
 echo; echo "===== [mgm setup] DONE ====="
