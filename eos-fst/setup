@@ -9,7 +9,5 @@ for i in {1..4}; do
   eos -r 0 0 -b fs add eosfs${i} fst.testnet:1095 /disks/eosfs${i} default rw
 done
 
-eos space set default on
-
 sleep 2
 eos fs ls
