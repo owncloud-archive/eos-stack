@@ -7,9 +7,9 @@ config = {
     'eos-mq',
     'eos-qdb',
   ],
-  'eos_version': '4.6.5',
-  'xrd_version': '4.11.0',
-  'qdb_version': '0.4.0',
+  'eos_version': '4.8.27',
+  'xrd_version': '4.12.5',
+  'qdb_version': '0.4.2',
 }
 
 def main(ctx):

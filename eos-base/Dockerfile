@@ -25,6 +25,8 @@ RUN rpm --rebuilddb && yum -y install \
     eos-server-${EOS_VERSION} \
     eos-client-${EOS_VERSION} \
     eos-test-${EOS_VERSION} \
+    eos-folly-2019.11.11.00 \
+    eos-folly-deps-2019.11.11.00 \
     bc \
     initscripts \
     libmicrohttpd \
