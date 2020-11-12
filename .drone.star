@@ -7,6 +7,9 @@ config = {
     'eos-mq',
     'eos-qdb',
   ],
+  'eos_version': '4.6.5',
+  'xrd_version': '4.11.0',
+  'qdb_version': '0.4.0',
 }
 
 def main(ctx):
@@ -33,10 +36,15 @@ def docker(ctx, image, depends_on):
         'image': 'plugins/docker:18.09',
         'pull': 'always',
         'settings': {
-        'dry_run': True,
-        'context': '%s' % (image),
-        'dockerfile': '%s/Dockerfile' % (image),
-        'repo': ctx.repo.slug,
+          'dry_run': True,
+          'context': '%s' % (image),
+          'dockerfile': '%s/Dockerfile' % (image),
+          'repo': ctx.repo.slug,
+          'build_args': [
+            'EOS_VERSION=%s' % (config['eos_version']),
+            'XRD_VERSION=%s' % (config['xrd_version']),
+            'QDB_VERSION=%s' % (config['qdb_version']),
+          ],
         },
         'when': {
         'ref': {
@@ -51,16 +59,21 @@ def docker(ctx, image, depends_on):
         'image': 'plugins/docker:18.09',
         'pull': 'always',
         'settings': {
-            'username': {
-            'from_secret': 'docker_username',
-            },
-            'password': {
-            'from_secret': 'docker_password',
-            },
-            'auto_tag': True,
-            'context': '%s' % (image),
-            'dockerfile': '%s/Dockerfile' % (image),
-            'repo': ctx.repo.slug,
+          'username': {
+          'from_secret': 'docker_username',
+          },
+          'password': {
+          'from_secret': 'docker_password',
+          },
+          'auto_tag': True,
+          'context': '%s' % (image),
+          'dockerfile': '%s/Dockerfile' % (image),
+          'repo': ctx.repo.slug,
+          'build_args': [
+            'EOS_VERSION=%s' % (ctx.build.ref.replace("refs/tags/v", "") if ctx.build.event == 'tag' else config['eos_version']),
+            'XRD_VERSION=%s' % (config['xrd_version']),
+            'QDB_VERSION=%s' % (config['qdb_version']),
+          ],
         },
         'when': {
             'ref': {

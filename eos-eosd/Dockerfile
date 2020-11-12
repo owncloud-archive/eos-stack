@@ -1,4 +1,5 @@
-FROM owncloud/eos-base
+ARG EOS_VERSION="4.6.5"
+FROM owncloud/eos-base:${EOS_VERSION}
 
 ARG EOS_VERSION="4.6.5"
 
