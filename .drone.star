@@ -7,17 +7,15 @@ config = {
     'eos-mq',
     'eos-qdb',
   ],
-  'eos_version': '4.8.27',
-  'xrd_version': '4.12.5',
-  'qdb_version': '0.4.2',
+  'eos_version': '4.6.5',
+  'qdb_version': '0.4.0',
 }
 
 def main(ctx):
     stages = []
-    stages.append(docker(ctx, 'eos-base', []))
 
     for image in config['images']:
-        stages.append(docker(ctx, image, ['docker-eos-base']))
+        stages.append(docker(ctx, image, []))
     
     return stages
 
@@ -42,7 +40,6 @@ def docker(ctx, image, depends_on):
           'repo': ctx.repo.slug,
           'build_args': [
             'EOS_VERSION=%s' % (config['eos_version']),
-            'XRD_VERSION=%s' % (config['xrd_version']),
             'QDB_VERSION=%s' % (config['qdb_version']),
           ],
         },
@@ -71,7 +68,6 @@ def docker(ctx, image, depends_on):
           'repo': ctx.repo.slug,
           'build_args': [
             'EOS_VERSION=%s' % (ctx.build.ref.replace("refs/tags/v", "") if ctx.build.event == 'tag' else config['eos_version']),
-            'XRD_VERSION=%s' % (config['xrd_version']),
             'QDB_VERSION=%s' % (config['qdb_version']),
           ],
         },
