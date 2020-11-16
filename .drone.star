@@ -57,15 +57,15 @@ def docker(ctx, image, depends_on):
         'pull': 'always',
         'settings': {
           'username': {
-          'from_secret': 'docker_username',
+          'from_secret': 'public_username',
           },
           'password': {
-          'from_secret': 'docker_password',
+          'from_secret': 'public_password',
           },
           'auto_tag': True,
           'context': '%s' % (image),
           'dockerfile': '%s/Dockerfile' % (image),
-          'repo': ctx.repo.slug,
+          'repo': 'owncloud/%s' % (ctx.repo.slug.replace("owncloud-docker/", "")),
           'build_args': [
             'EOS_VERSION=%s' % (ctx.build.ref.replace("refs/tags/v", "") if ctx.build.event == 'tag' else config['eos_version']),
             'QDB_VERSION=%s' % (config['qdb_version']),
