@@ -37,7 +37,7 @@ def docker(ctx, image, depends_on):
           'dry_run': True,
           'context': '%s' % (image),
           'dockerfile': '%s/Dockerfile' % (image),
-          'repo': ctx.repo.slug,
+          'repo': 'owncloud/%s' % (image),
           'build_args': [
             'EOS_VERSION=%s' % (config['eos_version']),
             'QDB_VERSION=%s' % (config['qdb_version']),
@@ -65,7 +65,7 @@ def docker(ctx, image, depends_on):
           'auto_tag': True,
           'context': '%s' % (image),
           'dockerfile': '%s/Dockerfile' % (image),
-          'repo': 'owncloud/%s' % (ctx.repo.slug.replace("owncloud-docker/", "")),
+          'repo': 'owncloud/%s' % (image),
           'build_args': [
             'EOS_VERSION=%s' % (ctx.build.ref.replace("refs/tags/v", "") if ctx.build.event == 'tag' else config['eos_version']),
             'QDB_VERSION=%s' % (config['qdb_version']),
